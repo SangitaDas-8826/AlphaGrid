@@ -1,0 +1,17 @@
+.register-page {
+  height: 100vh;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  padding: 20px;
+}
+
+.register-card {
+  width: 420px;
+  background: #fff;
+  border-radius: 15px;
+}
+
+.register-card h2 {
+  color: #0d6efd;
+}
+/* wrapper to contain input + icon */
+/* Register.css */

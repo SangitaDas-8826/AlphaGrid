@@ -1,0 +1,100 @@
+/* ===============================
+   CHECKOUT PAGE WRAPPER
+================================ */
+body
+{
+  margin-top: -60px;
+}
+/* If you are using BOTH classes on same div */
+.checkout-wrapper.checkout-container {
+  margin: auto;
+  padding: 0 20px;
+  max-width: 1200px; /* optional but recommended */
+  
+}
+
+
+/* ===============================
+   LEFT CARD
+================================ */
+.checkout-left-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ===============================
+   RIGHT CARD
+================================ */
+.checkout-right-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ===============================
+   USER INFO SECTION
+================================ */
+.user-info {
+  background: #eef5ff;
+  border-left: 5px solid #2874f0;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+
+/* ===============================
+   ADDRESS BOX
+================================ */
+.address-box {
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.address-box:hover {
+  border-color: #2874f0;
+}
+
+.address-box.active {
+  border-color: #2874f0;
+  background: #f5faff;
+}
+
+
+/* ===============================
+   ORDER SUMMARY
+================================ */
+.order-summary-box {
+  border: 2px solid #eee;
+  border-radius: 12px;
+  padding: 18px;
+  margin-top: 20px;
+}
+
+
+/* ===============================
+   PLACE ORDER BUTTON
+================================ */
+.place-order-btn {
+  background: #ff9f00;
+  border: none;
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.place-order-btn:hover {
+  background: #fb8c00;
+}

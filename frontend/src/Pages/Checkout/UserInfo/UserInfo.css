@@ -1,0 +1,41 @@
+/* ===============================
+   USER INFO CONTAINER
+================================ */
+.border-bottom {
+  border-bottom: 1px solid #e0e0e0 !important;
+   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.border-bottom:hover {
+   border-color: #2874f0;
+  box-shadow: 0 6px 16px rgba(40, 116, 240, 0.15);
+}
+
+
+/* SECTION TITLE */
+h6 {
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+
+/* USER NAME */
+strong {
+  font-size: 19px;
+  color: #212121;
+}
+
+/* SPACING FIX */
+.pb-3 {
+  padding-bottom: 12px !important;
+}
+
+.mb-3 {
+  margin-bottom: 16px !important;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 576px) {
+  strong {
+    font-size: 15px;
+  }
+}

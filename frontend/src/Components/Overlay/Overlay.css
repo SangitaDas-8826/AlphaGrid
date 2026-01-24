@@ -1,0 +1,18 @@
+/* =======================
+   OVERLAY
+======================= */
+
+.overlay {
+  position: fixed;
+  top: 100px;                       /* starts after navbar */
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 70px);      /* remaining screen */
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1100;                   /* below sidebar */
+  display: none;                   /* hidden by default */
+}
+
+.overlay.show {
+  display: block;
+}

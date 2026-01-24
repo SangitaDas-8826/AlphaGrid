@@ -1,0 +1,207 @@
+/* =========================
+   PRODUCT CONTAINER
+========================= */
+.product-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: linear-gradient(to bottom, #f4f5f7, #ffffff);
+ 
+  gap: 20px;
+
+  width: 100%;
+  min-height: 100vh;
+  padding: 60px 80px;
+  margin-top: -60px;
+  color: #fff;
+}
+
+/* =========================
+   IMAGE WRAPPER
+========================= */
+.product-images-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+
+
+
+/* =========================
+   MAIN IMAGE BOX
+========================= */
+.main-image-box {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  padding: 20px;                     /* ⬆ increased */
+  border-radius: 22px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+  max-width: 560px;                  /* ⬆ bigger box */
+}
+.product-main-image {
+  width: 100%;
+  max-width: 520px;                  /* ⬆ bigger image */
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.product-main-image:hover {
+  transform: scale(1.04);
+}
+/* ===============================
+   IMAGE DOTS (FLIPKART STYLE)
+================================ */
+.image-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cfcfcf;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.dot.active {
+  background: #ff2f6e; /* SAME BUTTON COLOR */
+  transform: scale(1.4);
+}
+
+.product-info {
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 6px;
+}
+
+/* QUALITY / BRAND */
+.product-info .quality {
+  margin-top:-20px;
+  font-size: 25px;
+  font-weight: 600;
+  color: #000000bf;
+  text-transform: uppercase;
+}
+
+/* TITLE */
+.product-info .product-title {
+  font-size: 25px;
+  font-weight: bold;
+  color: #000;
+  line-height: 1.3;
+}
+
+/* CATEGORY */
+.product-category {
+  font-size: 25px;
+  color:rgba(0, 123, 255, 0.829);
+}
+
+/* STOCK */
+.product-stock {
+  font-size: 19px;
+  font-weight: 600;
+  color: green;
+}
+
+/* PRICE */
+.product-price {
+  font-size: 26px;
+  font-weight: 700;
+  color: #ff2f6e;
+  margin: 10px 0;
+}
+
+/* DESCRIPTION */
+.product-description h5,
+.product-description p {
+  text-align: left;
+  color: #000;
+  font-size: 25px;
+}
+.product-description h5 {
+  color: #000;
+  font-weight: bold;
+  font-size: 23px;
+}
+
+/* QUANTITY */
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #000;
+  font-size: 27px;
+}
+
+/* BUTTONS */
+.add-to-cart-btn,
+.buy-now-btn {
+  margin-top: 10px;
+  width: 100%;
+  height: 50px;
+  font-size: 23px;
+   font-weight: bold;
+   border: none;
+  text-align: center; /* buttons text centered only */
+}
+
+.add-to-cart-btn {
+  background-color: orange;
+}
+.add-to-cart-btn:hover{
+ 
+  background-color: rgba(218, 165, 32, 0.925);
+}
+.buy-now-btn {
+   
+   background-color:rgba(255, 111, 0, 0.991);
+}
+.buy-now-btn:hover{
+   
+   background-color:rgba(255, 111, 0, 0.758);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .product-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 40px 20px;
+    margin-top: 0;
+  }
+
+  .product-images-wrapper {
+    justify-content: center;
+  }
+
+  .thumbnail-box {
+    align-items: center;
+  }
+
+  .product-thumbnail {
+    width: 55px;
+    height: 55px;
+  }
+
+  .main-image-box {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .product-main-image {
+    max-width: 300px;
+  }
+}

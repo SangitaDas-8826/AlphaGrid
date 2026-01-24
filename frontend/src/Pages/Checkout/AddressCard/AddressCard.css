@@ -1,0 +1,48 @@
+.address-box {
+  display: flex;
+  align-items: center;          /* vertical center */
+  border: 1px solid #ddd;
+  padding: 14px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #fff;
+}
+
+.address-box.active {
+  border: 2px solid #2874f0;
+  background-color: #f5faff;
+}
+
+/* LEFT CONTENT */
+.address-left {
+  flex: 1;                      /* KEY FIX */
+}
+
+/* Address text */
+.address-text {
+  font-size: 14px;
+  color: #6b6b6b;
+  margin: 4px 0 0 24px;
+}
+
+/* RIGHT BUTTONS */
+.address-right {
+  display: flex;
+  align-items: center;          /* vertical middle */
+  gap: 16px;
+  margin-left: auto;            /* push right */
+}
+
+/* Buttons */
+.address-right .btn-link {
+  font-size: 24px;
+  font-weight: 500;
+  padding: 0;
+  text-decoration: none;
+}
+
+.address-right .btn-link:hover {
+  text-decoration: underline;
+}
+
