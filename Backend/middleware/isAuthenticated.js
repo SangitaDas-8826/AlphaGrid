@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import User from "../models/userModel.js";
 
-const authenticated = async (req, res, next) => {
+export const authenticated = async (req, res, next) => {
   try {
     const authHeader = req.headers.authorization;
 
@@ -52,7 +52,7 @@ const authenticated = async (req, res, next) => {
   }
 };
 
- const isAdmin = async (req,res,next) => {
+ export const isAdmin = async (req,res,next) => {
   if (req.user && req.user.role == 'admin') {
    return next()
   } else {
@@ -63,7 +63,3 @@ const authenticated = async (req, res, next) => {
   }
 }
 
-export default {
-   authenticated,
-   isAdmin
-  };

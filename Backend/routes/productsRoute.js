@@ -1,43 +1,19 @@
 import express from "express";
-import Product from "../models/productModel.js";
+import {addProduct,getProducts} from "../controllers/productController.js";
 import mongoose from "mongoose";
+import {authenticated,isAdmin} from "../middleware/isAuthenticated.js"
+import Product from "../models/productModel.js";
 
 const router = express.Router();
 
 // GET ALL PRODUCTS
-router.get("/", async (req, res) => {
-  try {
-    const products = await Product.find();
-    res.json(products);
-  } catch (error) {
-    res.status(500).json({ message: "Error fetching products" });
-  }
-});
+router.get("/", getProducts)
 
-router.post("/", async (req, res) => {
-  try {
-    const product = new Product({
-      name: req.body.name,
-      price: req.body.price,
-      category: req.body.category,
-      brand: req.body.brand,
-      quality: req.body.quality,
-      image: req.body.image,
-      images: req.body.images || [],
-      description: req.body.description,
-      countInStock: req.body.countInStock,
-    });
-
-    const createdProduct = await product.save();
-    res.status(201).json(createdProduct);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-});
+// Admin only
+router.post("/add-product", authenticated,isAdmin , addProduct)
 
 
-
-// GET SINGLE PRODUCT
+    // GET SINGLE PRODUCT
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
 
@@ -53,6 +29,29 @@ router.get("/:id", async (req, res) => {
     res.json(product);
   } catch (error) {
     res.status(500).json({ message: "Server error" });
+  }
+});
+
+router.put("/:id", authenticated, isAdmin, async (req, res) => {
+  try {
+    const updatedProduct = await Product.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+
+    res.json(updatedProduct);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+router.delete("/:id", authenticated, isAdmin, async (req, res) => {
+  try {
+    await Product.findByIdAndDelete(req.params.id);
+    res.json({ success: true, message: "Product deleted" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 });
 

@@ -2,10 +2,7 @@ import express from 'express';
 const router = express.Router();
 
 import userController from "../controllers/userController.js";
-import auth from '../middleware/isAuthenticated.js';
-
-const { authenticated, isAdmin } = auth;
-
+import {authenticated,isAdmin} from "../middleware/isAuthenticated.js"
 
 router.post("/register", userController.register);
 router.post("/verify", userController.verify);
