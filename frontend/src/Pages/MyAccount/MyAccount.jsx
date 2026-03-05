@@ -27,7 +27,8 @@ const MyAccount = () => {
                 <div>
                   <p className="mb-0 fw-bold" style={{
                     color: "#000000c5",
-                    fontSize: "20px"
+                    fontSize: "20px",
+                    marginLeft:"-2px"
                   }}>Sangita Das</p>
                   <small className="text-muted" style={{
                     fontSize:"15px"
