@@ -35,10 +35,15 @@ const Products = () => {
   useEffect(() => {
     fetch("http://localhost:5000/api/products")
       .then((res) => res.json())
-      .then((data) => setProducts(data))
-      .catch((err) => console.error(err));
-  }, []);
+    .then((data) => {
+      console.log("FULL RESPONSE:", data);
+      console.log("TYPE OF PRODUCTS:", typeof data.products);
+      console.log("IS ARRAY:", Array.isArray(data.products));
 
+      setProducts(data || []); // ✅ very important
+    })
+    .catch((err) => console.error(err));
+}, []);
   // FILTER PRODUCTS
   const filtered = products.filter((p) => {
    const c =
@@ -91,7 +96,7 @@ const Products = () => {
                 </h6>
 
                 <h6 className="product-title">{item.name}</h6>
-                <p className="fw-bold">   ₹{item.price ? Number(item.price).toLocaleString("en-IN") : "0"}</p>
+                <p className="fw-bold">₹{item.price ? Number(item.price).toLocaleString("en-IN") : "0"}</p>
 
                 <button
                   className="btn w-100 text-white"

@@ -50,7 +50,7 @@ const Home = () => {
               className="col-6 col-md-2 text-center"
               style={{ cursor: "pointer" }}
               onClick={() =>
-                navigate(`/products?category=${cat.name}`)
+                navigate(`/products?category=${encodeURIComponent(cat.name)}`)
               }
             >
               <img src={cat.image} alt={cat.name} width="80" />

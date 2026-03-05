@@ -19,6 +19,7 @@ const Navbar = ({
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchText, setSearchText] = useState("");
 
+ 
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     if (userInfo?.name) {
@@ -52,7 +53,7 @@ const Navbar = ({
           {/* LOGO */}
           <Link
             className="navbar-brand fw-bold"
-            style={{ color: "#ff0077d6" }}
+            style={{ color: "#ff0077d6",marginLeft:10 }}
             to="/"
           >
             ALPHA-GRID
@@ -96,9 +97,7 @@ const Navbar = ({
                 <Link className="nav-link" to="/">Home</Link>
               </li>
 
-             
-
-              {isLoggedIn && (
+             {isLoggedIn && (
                 <li className="nav-item">
                   <span
                     className="nav-link"
@@ -109,6 +108,8 @@ const Navbar = ({
                   </span>
                 </li>
               )}
+
+            
 
               <li className="nav-item position-relative">
                 <Link to="/cart" className="nav-link">

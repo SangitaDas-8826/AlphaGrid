@@ -18,21 +18,19 @@ function Login({ setIsLoggedIn }) {
         "http://localhost:5000/api/user/login",
         { email, password }
       );
-
+     
       toast.success("Login Successful!");
 
       // ✅ SAVE TOKEN (IMPORTANT)
-      localStorage.setItem("token", response.data.token);
-
+      localStorage.setItem("token", response.data.accessToken);
       // ✅ SAVE USER INFO (OPTIONAL)
       localStorage.setItem(
-        "userInfo",
-        JSON.stringify({
-          name: response.data.user.firstName,
-          email: response.data.user.email,
-        })
-      );
-
+  "userInfo",
+  JSON.stringify({
+    name: response.data.user.firstName,
+    email: response.data.user.email,
+  })
+);
       // ✅ UPDATE LOGIN STATE
       setIsLoggedIn(true);
 
