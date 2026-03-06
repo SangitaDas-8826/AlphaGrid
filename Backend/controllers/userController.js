@@ -26,7 +26,7 @@ const register = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUser = await User.create({
+    const newUser =  new User({
       firstName,
       lastName,
       email,
@@ -127,7 +127,7 @@ const reVerify = async (req, res) => {
       { expiresIn: "1h" }
     );
 
-    verifyEmail(token, email);
+    await verifyEmail(token, email);
 
     user.token = token;
     await user.save();
