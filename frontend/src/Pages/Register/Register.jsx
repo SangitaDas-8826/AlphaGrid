@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import API_BASE_URL from "../../config.js";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -31,7 +32,7 @@ function Register() {
     setError("");
 
     try {
-       await axios.post("http://localhost:5000/api/user/register",formData);
+       await axios.post(`${API_BASE_URL}/api/user/register`,formData);
 
       // ✅ Show toast like login
       toast.success("User registered successfully!");

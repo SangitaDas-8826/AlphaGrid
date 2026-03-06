@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import API_BASE_URL from "../../config.js";
 import "./Payment.css";
 
 const Payment = () => {
@@ -57,7 +58,7 @@ const Payment = () => {
       }
 
       // 🔥 SEND PAISE TO BACKEND
-      const res = await fetch("http://localhost:5000/create-order", {
+      const res = await fetch(`${API_BASE_URL}create-order`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ amount: amount * 100 }),
@@ -76,7 +77,7 @@ const Payment = () => {
 
         handler: async (response) => {
           const verify = await fetch(
-            "http://localhost:5000/verify-payment",
+            `${API_BASE_URL}/verify-payment`,
             {
               method: "POST",
               headers: { "Content-Type": "application/json" },

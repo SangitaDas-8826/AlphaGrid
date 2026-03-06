@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import API_BASE_URL from "../../config.js";
 
 const AdminProducts = () => {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
 
   const fetchProducts = async () => {
-    const res = await axios.get("http://localhost:5000/api/products");
+    const res = await axios.get(`${API_BASE_URL}/api/products`);
     setProducts(res.data);
   };
 
@@ -18,7 +19,7 @@ const AdminProducts = () => {
   const deleteHandler = async (id) => {
     if (window.confirm("Are you sure?")) {
       await axios.delete(
-        `http://localhost:5000/api/products/${id}`,
+        `${API_BASE_URL}/api/products/${id}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`

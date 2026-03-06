@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useLocation, useNavigate } from "react-router-dom";
+import API_BASE_URL from "../../config.js";
 import "./Products.css";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import Overlay from "../../Components/Overlay/Overlay";
@@ -33,7 +34,7 @@ const Products = () => {
 
   // FETCH PRODUCTS
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
+    fetch(`${API_BASE_URL}/api/products`)
       .then((res) => res.json())
     .then((data) => {
       console.log("FULL RESPONSE:", data);

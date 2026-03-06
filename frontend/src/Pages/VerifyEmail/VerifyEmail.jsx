@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-
+import API_BASE_URL from "../../config.js";
 function VerifyEmail() {
   const { token } = useParams(); // get token from URL
   const navigate = useNavigate();
@@ -9,7 +9,7 @@ function VerifyEmail() {
   useEffect(() => {
     const verifyEmail = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/user/verify", {
+        const res = await fetch(`${API_BASE_URL}/api/user/verify`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

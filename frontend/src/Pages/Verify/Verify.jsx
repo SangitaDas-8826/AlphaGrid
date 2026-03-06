@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import API_BASE_URL from "../../config.js";
 
  function Verify() {
   const location = useLocation();
@@ -20,7 +21,7 @@ import axios from "axios";
 
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5000/api/user/reVerify", {
+      const res = await axios.post(`${API_BASE_URL}/api/user/reVerify`, {
         email: userEmail,
       });
 

@@ -28,6 +28,7 @@ import AdminDashboard from "./Pages/Admin/AdminDashboard";
 import AddProduct from "./Pages/Admin/AddProduct";
 import AdminProducts from "./Pages/Admin/AdminProducts";
 import UpdateProduct from "./Pages/Admin/UpdateProduct";
+import CustomerService from "./Pages/CustomerService/CustomerService";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
@@ -96,6 +97,8 @@ const [price, setPrice] = useState([0, 999999]);
         <Route path="/verify/:token" element={<VerifyEmail />} />
         <Route path="/order-tracking/:orderId" element={<OrderTracking />} />
          <Route path="/checkout" element={<Checkout />}>
+         
+
           <Route path="address" element={<AddressForm />} />
         </Route>
         <Route />
@@ -103,8 +106,9 @@ const [price, setPrice] = useState([0, 999999]);
   <Route path="/admin/products" element={<AdminProducts />} />
   <Route path="/admin/add-product" element={<AddProduct/>} />
   <Route path="/admin/update-product/:id" element={<UpdateProduct />} />
-
+<Route path="/customer-service" element={<CustomerService />}></Route>
       </Routes>
+      
 
       <Footer />
     </BrowserRouter>

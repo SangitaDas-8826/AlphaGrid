@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import API_BASE_URL from "../../config.js";
 
 
 
@@ -22,9 +23,9 @@ const AddProduct = () => {
     e.preventDefault();
 
     try {
-      await axios.post(
-  "http://localhost:5000/api/products/add-product",
-  product,
+      await axios.post(`${API_BASE_URL}/api/products/add-product`,
+         product,
+ 
   {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`

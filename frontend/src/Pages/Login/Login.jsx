@@ -4,6 +4,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import API_BASE_URL from "../../config.js";
 
 function Login({ setIsLoggedIn }) {
   const [email, setEmail] = useState("");
@@ -15,7 +16,7 @@ function Login({ setIsLoggedIn }) {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/user/login",
+        `${API_BASE_URL}/api/user/login`,
         { email, password }
       );
      
