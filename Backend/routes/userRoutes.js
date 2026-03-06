@@ -6,7 +6,7 @@ import {authenticated,isAdmin} from "../middleware/isAuthenticated.js"
 
 router.post("/register", userController.register);
 router.post("/verify", userController.verify);
-router.post("/re-Verify",userController.reVerify);
+router.post("/reVerify",userController.reVerify);
 router.post("/login",userController.login);
 router.post("/logout",authenticated,userController.logout);
 router.post("/forgot-Password",userController.forgotPassword);
