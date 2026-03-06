@@ -24,7 +24,7 @@ const verifyEmail = async (token, email) => {
 You recently visited our website and entered your email.  
 Please click the link below to verify your email:  
 
-http://localhost:3000/verify/${token}
+https://alpha-grid-one.vercel.app/verify/${token}
 
 Thanks!`,
     };
