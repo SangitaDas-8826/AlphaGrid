@@ -8,10 +8,14 @@ const sendOTPMail = async (otp, email) => {
   try {
     const transporter = nodemailer.createTransport({
       service: "gmail",
+       host: "smtp.gmail.com",
+       port: 587,
+       secure: false,
       auth: {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
       },
+       connectionTimeout: 10000,
     });
 console.log(process.env.MAIL_USER);
 console.log(process.env.MAIL_PASS);

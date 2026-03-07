@@ -38,16 +38,15 @@ console.log("Register API hit");
       process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
+newUser.token = token;
+    await newUser.save();
 
-  console.log("Token created:", token);
 
 console.log("Calling verifyEmail function...");
 await verifyEmail(token, email);
 console.log("verifyEmail finished");
 
-    newUser.token = token;
-    await newUser.save();
-
+    
     return res.status(200).json({
       success: true,
       message: "User registered successfully",
