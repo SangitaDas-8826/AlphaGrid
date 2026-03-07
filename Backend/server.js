@@ -10,9 +10,9 @@ import path from 'path';
 import Product from './models/productModel.js'
 import productRoute from './routes/productsRoute.js'
 import { validateWebhookSignature } from "razorpay/dist/utils/razorpay-utils.js";
-import { configDotenv } from "dotenv";
+import dotenv from "dotenv";
 
-configDotenv();
+dotenv.config();
 
 
 // middleware

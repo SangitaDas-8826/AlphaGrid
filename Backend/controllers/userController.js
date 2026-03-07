@@ -32,14 +32,18 @@ const register = async (req, res) => {
       email,
       password: hashedPassword,
     });
-
+console.log("Register API hit");
     const token = jwt.sign(
       { id: newUser._id },
       process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
 
-   await verifyEmail(token, email);
+  console.log("Token created:", token);
+
+console.log("Calling verifyEmail function...");
+await verifyEmail(token, email);
+console.log("verifyEmail finished");
 
     newUser.token = token;
     await newUser.save();
