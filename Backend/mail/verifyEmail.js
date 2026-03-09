@@ -1,44 +1,18 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import 'dotenv/config'
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 const verifyEmail = async (token, email) => {
-  try {
-   
 
-    // Create transporter
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 587,
-      secure: false,
-      auth: {
-        user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASS,
-      },
-    });
+  const verifyLink = `https://alpha-grid-one.vercel.app/verify/${token}`;
 
-    // Email content
-    const mailOptions = {
-      from: process.env.MAIL_USER,
-      to: email,
-      subject: "Email Verification",
-      text: `Hi there!  
-You recently visited our website and entered your email.  
-Please click the link below to verify your email:  
+  await resend.emails.send({
+    from: process.env.MAIL_USER,
+    subject: "Verify Email",
+    html: `<a href="${verifyLink}">Verify your email</a>`
+  });
 
-https://alpha-grid-one.vercel.app/verify/${token}
-
-Thanks!`,
-    };
-
-    // Sending email
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) throw new Error(error);
-
-      console.log("Email Sent Successfully");
-    //   console.log(info);
-    });
-  } catch (error) {
-    console.log(error);
-  }
 };
 
 export default verifyEmail;
