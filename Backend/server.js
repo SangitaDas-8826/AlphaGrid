@@ -1,18 +1,18 @@
 import express from 'express';
+import 'dotenv/config';
 const app = express();
 import { fileURLToPath } from "url";
 import cors from 'cors';
 import Razorpay from "razorpay";
 import Crypto from "crypto";
+import mongoose from "mongoose";
 import connectDB from './database/db.js';
 import userRoutes from './routes/userRoutes.js';
 import path from 'path';
 import Product from './models/productModel.js'
 import productRoute from './routes/productsRoute.js'
 import { validateWebhookSignature } from "razorpay/dist/utils/razorpay-utils.js";
-import dotenv from "dotenv";
 
-dotenv.config();
 
 
 // middleware
@@ -37,9 +37,6 @@ const PORT = process.env.PORT || 5000;
 app.use('/api/user', userRoutes);
 
 app.use("/api/products", productRoute);
-
-// Example route
-import mongoose from "mongoose";
 
 app.get("/api/products/:id", async (req, res) => {
   const { id } = req.params;
