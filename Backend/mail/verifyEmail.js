@@ -8,14 +8,11 @@ export const verifyEmail = async (token,email) => {
       from: "onboarding@resend.dev",
       to: "sangitadas8826@gmail.com",
       subject: "Verify your Email",
-      html: `
-        <div style="font-family: Arial">
-          <h2>Email Verification</h2>
-          <p>Your OTP for email verification is:</p>
-          <h1>${token}</h1>
-          <p>This OTP will expire in 10 minutes.</p>
-        </div>
-      `,
+      text: `Hi there!  
+You recently visited our website and entered your email.  
+Please click the link below to verify your email:  
+https://alpha-grid-one.vercel.app/verify/${token}
+Thanks!`      ,
     });
 
     console.log("Email sent:", response);
