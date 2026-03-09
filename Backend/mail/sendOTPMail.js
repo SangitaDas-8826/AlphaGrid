@@ -15,7 +15,9 @@ const sendOTPMail = async (otp, email) => {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
       },
-       connectionTimeout: 10000,
+       tls: {
+    rejectUnauthorized: false,
+  },
     });
 console.log(process.env.MAIL_USER);
 console.log(process.env.MAIL_PASS);

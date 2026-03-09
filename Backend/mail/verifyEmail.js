@@ -2,36 +2,42 @@ import nodemailer from "nodemailer";
 
 const verifyEmail = async (token, email) => {
   try {
-    console.log("verifyEmail function started");
+   
 
+    // Create transporter
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
       auth: {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
       },
     });
 
+    // Email content
     const mailOptions = {
       from: process.env.MAIL_USER,
       to: email,
       subject: "Email Verification",
-      html: `
-        <h2>Email Verification</h2>
-        <p>Please click the link below to verify your email:</p>
-        <a href="https://alpha-grid-one.vercel.app/verify/${token}">
-          Verify Email
-        </a>
-      `,
+      text: `Hi there!  
+You recently visited our website and entered your email.  
+Please click the link below to verify your email:  
+
+https://alpha-grid-one.vercel.app/verify/${token}
+
+Thanks!`,
     };
 
-    const info = await transporter.sendMail(mailOptions);
+    // Sending email
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) throw new Error(error);
 
-    console.log("Email Sent Successfully");
-    console.log(info.response);
-
+      console.log("Email Sent Successfully");
+    //   console.log(info);
+    });
   } catch (error) {
-    console.log("Mail Error:", error);
+    console.log(error);
   }
 };
 
