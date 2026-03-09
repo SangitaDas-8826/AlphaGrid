@@ -2,14 +2,11 @@ import nodemailer from "nodemailer";
 
 const verifyEmail = async (token, email) => {
   try {
-   console.log("MAIL_USER:", process.env.MAIL_USER);
-console.log("MAIL_PASS:", process.env.MAIL_PASS);
-
+   
     // Create transporter
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 587,
-      secure: false,
+      service: "gmail",
+      
       auth: {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
@@ -31,12 +28,9 @@ Thanks!`,
     };
 
     // Sending email
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) throw new Error(error);
-
-      console.log("Email Sent Successfully");
-    //   console.log(info);
-    });
+    await transporter.sendMail(mailOptions)
+    console.log("Verification email sent");
+     
   } catch (error) {
     console.log(error);
   }

@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { type } from "os";
 
 const userSchema = new mongoose.Schema(
   {
@@ -52,6 +53,9 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: false
     },
+    verifyToken: {
+     type: String
+    },
 
     isLoggedIn: {
       type: Boolean,
@@ -88,6 +92,7 @@ const userSchema = new mongoose.Schema(
       default: ""
     }
   },
+   
   { timestamps: true }
 );
 

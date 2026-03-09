@@ -7,108 +7,99 @@ import sendOTPMail from "../mail/sendOTPMail.js";
 
 const register = async (req, res) => {
   try {
+
     const { firstName, lastName, email, password } = req.body;
 
     if (!firstName || !lastName || !email || !password) {
       return res.status(400).json({
         success: false,
-        message: "All fields are required",
+        message: "All fields are required"
       });
     }
 
     const user = await User.findOne({ email });
+
     if (user) {
       return res.status(400).json({
         success: false,
-        message: "User already exists",
+        message: "User already exists"
       });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUser =  new User({
+    const newUser = new User({
       firstName,
       lastName,
       email,
-      password: hashedPassword,
+      password: hashedPassword
     });
-console.log("Register API hit");
+
     const token = jwt.sign(
       { id: newUser._id },
       process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
-newUser.token = token;
+
+    newUser.verifyToken = token;
+
     await newUser.save();
 
+    console.log("Calling verifyEmail function...");
+    await verifyEmail(token, email);
+    console.log("verifyEmail finished");
 
-console.log("Calling verifyEmail function...");
-await verifyEmail(token, email);
-console.log("verifyEmail finished");
-
-    
     return res.status(200).json({
       success: true,
-      message: "User registered successfully",
-      user: newUser,
+      message: "User registered successfully. Please verify email."
     });
+
   } catch (error) {
     return res.status(500).json({
       success: false,
-      message: error.message,
+      message: error.message
     });
   }
 };
 
 const verify = async (req, res) => {
   try {
-    const authHeader = req.headers.authorization;
 
-    if (!authHeader || !authHeader.startsWith("Bearer ")) {
-      return res.status(400).json({
-        success: false,
-        message: "Authorization token is missing or invalid",
-      });
-    }
+    const { token } = req.params;
 
-    const token = authHeader.split(" ")[1];
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    let decode;
-    try {
-      decode = jwt.verify(token, process.env.JWT_SECRET);
-    } catch (error) {
-      if (error.name === "TokenExpiredError") {
-        return res.status(400).json({
-          success: false,
-          message: "The registration token has expired",
-        });
-      }
-      return res.status(400).json({
-        success: false,
-        message: "Token verification failed",
-      });
-    }
+    const user = await User.findById(decoded.id);
 
-    const user = await User.findById(decode.id);
     if (!user) {
       return res.status(404).json({
         success: false,
-        message: "User not found",
+        message: "User not found"
       });
     }
 
-    user.token = null;
     user.isVerified = true;
+    user.verifyToken = null;
+
     await user.save();
 
     return res.status(200).json({
       success: true,
-      message: "Email verified successfully",
+      message: "Email verified successfully"
     });
+
   } catch (error) {
+
+    if (error.name === "TokenExpiredError") {
+      return res.status(400).json({
+        success: false,
+        message: "Verification link expired"
+      });
+    }
+
     return res.status(500).json({
       success: false,
-      message: error.message,
+      message: error.message
     });
   }
 };
