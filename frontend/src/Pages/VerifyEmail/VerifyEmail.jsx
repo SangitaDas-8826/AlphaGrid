@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import API_BASE_URL from "../../config.js";
+
 function VerifyEmail() {
-  const { token } = useParams(); // get token from URL
+  const { token } = useParams();
   const navigate = useNavigate();
   const [status, setStatus] = useState("Verifying...");
 
   useEffect(() => {
     const verifyEmail = async () => {
       try {
-        const res = await fetch(`${API_BASE_URL}/api/user/verify`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`, // ⭐ SEND TOKEN IN HEADER
-          },
+        const res = await fetch(`${API_BASE_URL}/api/user/verify/${token}`, {
+          method: "GET"
         });
 
         const data = await res.json();
