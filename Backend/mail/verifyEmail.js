@@ -13,7 +13,7 @@ const verifyEmail = async (email, token) => {
   });
 
   const mailOptions = {
-    from: "onboarding@resend.dev",
+    from: `"Alpha Grid" <${process.env.MAIL_USER}>`,
       to: email,
     subject: "Verify your Email",
    text: `Hi there!  
