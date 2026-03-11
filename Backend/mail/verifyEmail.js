@@ -12,7 +12,7 @@ export const verifyEmail = async (token,email) => {
 You recently visited our website and entered your email.  
 Please click the link below to verify your email:  
 https://alpha-grid-one.vercel.app/verify/${token}
-Thanks!`      ,
+Thanks!` ,
     });
 
     console.log("Email sent:", response);
