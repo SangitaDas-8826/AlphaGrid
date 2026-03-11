@@ -94,7 +94,7 @@ const [price, setPrice] = useState([0, 999999]);
         <Route path="/register" element={<Register />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/verify" element={<Verify />} />
-        <Route path="/verification/:token" element={<VerifyEmail />} />
+        <Route path="/verify/:token" element={<VerifyEmail />} />
         <Route path="/order-tracking/:orderId" element={<OrderTracking />} />
          <Route path="/checkout" element={<Checkout />}>
          
