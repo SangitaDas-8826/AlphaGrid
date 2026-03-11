@@ -5,7 +5,7 @@ import userController from "../controllers/userController.js";
 import {authenticated,isAdmin} from "../middleware/isAuthenticated.js"
 
 router.post("/register", userController.register);
-router.post("/verify/:token", userController.verify);
+router.get("/verify/:token", userController.verify);
 router.post("/reVerify",userController.reVerify);
 router.post("/login",userController.login);
 router.post("/logout",authenticated,userController.logout);
