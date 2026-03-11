@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-
+import API_BASE_URL from "../../config.js";
 
 function VerifyEmail() {
   const { token } = useParams();
@@ -10,12 +10,11 @@ function VerifyEmail() {
   useEffect(() => {
     const verifyEmail = async () => {
       try {
-        const res = await fetch(`https://alphagrid-my6w.onrender.com/api/user/verify/${token}`, {
+        const res = await fetch(`${API_BASE_URL}/api/user/verify/${token}`, {
           method: "GET"
         });
 
         const data = await res.json();
-        console.log(data)
 
         if (res.ok) {
           setStatus("Email verified successfully!");
