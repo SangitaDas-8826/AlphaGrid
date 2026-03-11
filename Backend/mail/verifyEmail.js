@@ -6,7 +6,7 @@ export const verifyEmail = async (token,email) => {
   try {
     const response = await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: "sangitadas8826@gmail.com",
+      to: email,
       subject: "Verify your Email",
       text: `Hi there!  
 You recently visited our website and entered your email.  
