@@ -1,0 +1,145 @@
+/* ===============================
+   PAGE WRAPPER
+================================ */
+.account-wrapper {
+  background: #ffffff;
+  min-height: 100vh;
+  color: #000
+}
+
+/* ===============================
+   LEFT SIDEBAR CARD
+================================ */
+.account-menu {
+  background: #151515;
+  border-radius: 16px;
+  border: 1px solid #222;
+  overflow: hidden;
+  
+}
+
+/* ===============================
+   USER BOX (TOP)
+================================ */
+.user-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px;
+  border-bottom: 1px solid #222;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  background: #ff2f6e;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 50%;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-box p {
+  color: #fff;
+  font-size: 15px;
+}
+
+.user-box small {
+  color: #aaa;
+  font-size: 12px;
+}
+
+/* ===============================
+   MENU LIST
+================================ */
+.account-menu .list-group-item {
+  background: transparent;
+  color: #000;
+  border: none;
+  padding: 14px 18px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.account-menu .list-group-item:hover {
+  background: #1e1e1e;
+  color: #ffffff;
+}
+
+.account-menu .list-group-item.active {
+  background: rgba(255, 47, 110, 0.15);
+  color: #ff2f6e;
+  border-left: 4px solid #ff2f6e;
+  font-weight: 600;
+}
+
+.account-menu .list-group-item.text-danger {
+  color: #ff5c5c !important;
+}
+
+/* ===============================
+   RIGHT CONTENT CARD
+================================ */
+.account-content {
+  background: #151515;
+  border-radius: 18px;
+  border: 1px solid #222;
+  min-height: 400px;
+}
+
+/* ===============================
+   SECTION HEADINGS
+================================ */
+.account-content h5,
+.section-title {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* ===============================
+   COMMON TEXT
+================================ */
+.account-content p {
+  color: #e0e0e0;
+  font-size: 14px;
+}
+
+/* ===============================
+   BUTTON OVERRIDES (OPTIONAL)
+================================ */
+.btn-primary {
+  background: #ff2f6e;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #e02661;
+}
+
+.btn-outline-danger {
+  border-color: #ff5c5c;
+  color: #ff5c5c;
+}
+
+.btn-outline-danger:hover {
+  background: #ff5c5c;
+  color: #fff;
+}
+
+/* ===============================
+   RESPONSIVE FIX
+================================ */
+@media (max-width: 768px) {
+  .account-menu {
+    border-radius: 12px;
+  }
+
+  .account-content {
+    padding: 20px !important;
+  }
+}

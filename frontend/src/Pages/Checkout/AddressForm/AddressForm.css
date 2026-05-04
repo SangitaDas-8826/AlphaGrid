@@ -1,0 +1,25 @@
+.address-box {
+  border: 1px solid #e5e5e5;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.address-box p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.address-actions button {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+@media (max-width: 768px) {
+  .checkout-card {
+    padding: 12px;
+  }
+
+  .order-summary-item {
+    font-size: 13px;
+  }
+}

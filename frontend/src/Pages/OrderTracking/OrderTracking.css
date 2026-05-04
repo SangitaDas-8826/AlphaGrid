@@ -1,0 +1,138 @@
+/* ===============================
+   PAGE CONTAINER (NO BOX)
+================================ */
+.tracking-container {
+  width: 100%;           /* take full width */
+  max-width: none;       /* ❌ remove limit */
+  margin: 20px 0;        /* ❌ no auto centering */
+  padding: 0 20px;       /* small left spacing */
+  background: #ffffff;
+}
+
+/* TITLE */
+.tracking-container h5 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #000;
+}
+
+.tracking-container p {
+  font-size: 19px;
+  color: #555555;
+}
+
+/* ===============================
+   PRODUCT ROW (FLIPKART STYLE)
+================================ */
+.tracking-product {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #e6e6e6; /* subtle divider */
+}
+
+.tracking-product img {
+  width: 200px;
+  height: 180px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #fff;
+ box-shadow: 0 4px 16px rgba(0, 0, 0, 0.872);
+
+}
+
+.tracking-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.product-qty {
+  font-size: 13px;
+  color: #666;
+}
+/* ===============================
+   TRACKING STEPS (OPEN LAYOUT)
+================================ */
+.tracking-steps {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0;
+  position: relative;
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #ddd;
+  margin: -10px  120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: transparent;
+}
+
+.circle.active {
+  background: #ff2f6e; /* pink accent */
+  color: #fff;
+}
+
+/* connecting line */
+.step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  right: -50%;
+  width: 100%;
+  height: 3px;
+  background: #ddd;
+}
+
+.step:not(:last-child) .circle.active ~ ::after {
+  background: #ff2f6e;
+}
+
+.step p {
+   margin-top: 20px;
+  font-size: 15px;
+  margin-left: -50px;
+  color: #555;
+}
+
+/* ===============================
+   DELIVERY DATE (INLINE)
+================================ */
+.delivery-date {
+  margin-top: 20px;
+  font-size: 30px !important;
+  color: #000;
+  
+}
+
+.delivery-date b {
+  color: #ff2f6e;
+}
+
+/* ===============================
+   MOBILE
+================================ */
+@media (max-width: 576px) {
+  .tracking-steps {
+    gap: 6px;
+  }
+}

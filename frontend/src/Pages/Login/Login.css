@@ -1,0 +1,12 @@
+.login-page {
+  height: 100vh;
+   background: linear-gradient(135deg, #6a11cb, #2575fc);
+  padding: 10px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 15px;
+  background: #ffffff;
+}

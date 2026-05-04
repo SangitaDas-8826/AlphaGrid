@@ -1,0 +1,120 @@
+/* =======================
+   SIDEBAR CONTAINER
+======================= */
+
+.sidebar {
+  position: fixed;
+  top: 100px;                 /* ✅ starts after navbar */
+  left: -280px;
+  width: 280px;
+  height: calc(100vh - 90px); /* ✅ remaining height */
+  background: #ffffff;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+  z-index: 1200;
+  transition: left 0.3s ease;
+  overflow-y: auto;
+}
+
+/* Sidebar open */
+.sidebar.open {
+  left: 0;
+}
+
+/* =======================
+   SIDEBAR HEADER
+======================= */
+
+.sidebar-header {
+  position: sticky;
+  top: 0;
+  background: #232f3e;
+  color: #ffffff;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+
+.sidebar-header h5 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.close-btn {
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* =======================
+   SIDEBAR CONTENT
+======================= */
+
+.sidebar-content {
+  padding: 16px;
+}
+
+/* =======================
+   MENU ITEMS
+======================= */
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eeeeee;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-item input {
+  cursor: pointer;
+}
+
+/* =======================
+   PRODUCT GRID HELPERS
+======================= */
+
+.product-title {
+  font-size: 0.95rem;
+  white-space: normal;
+  overflow-wrap: break-word;
+  width: 100%;
+}
+
+/* =======================
+   CUSTOM GRID COLUMNS
+======================= */
+
+.custom-col {
+  flex: 0 0 20%;
+  max-width: 20%;
+}
+
+@media (max-width: 992px) {
+  .custom-col {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-col {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+}
+
+@media (max-width: 576px) {
+  .custom-col {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
