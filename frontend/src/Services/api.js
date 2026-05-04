@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const API = axios.create({
-  baseURL: "https://alphagrid-my6w.onrender.com", // change to your backend
+  baseURL: "https://alphagrid-1.onrender.com", // change to your backend
 });
 
 API.interceptors.request.use((req) => {
