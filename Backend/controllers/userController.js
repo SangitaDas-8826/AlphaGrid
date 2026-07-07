@@ -46,7 +46,7 @@ const register = async (req, res) => {
     await newUser.save();
 
     console.log("Calling verifyEmail function...");
-    await verifyEmail(token, email);
+    await verifyEmail(email,token);
     console.log("verifyEmail finished");
 
     return res.status(200).json({
@@ -121,7 +121,7 @@ const reVerify = async (req, res) => {
       { expiresIn: "1h" }
     );
 
-    await verifyEmail(token, email);
+    await verifyEmail(email,token);
 
     user.token = token;
     await user.save();
